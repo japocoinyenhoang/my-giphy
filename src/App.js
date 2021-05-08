@@ -10,14 +10,13 @@ function App() {
 
   const [gifs, setGifts] = useState(GIFS);
 
-  //enderiza cada veaz que se renderiza la pagina
-  //lo que antiguamemte era el COMPONENTDIDMOUNT 
-  //useEffect()
+  //se ejecuta cada vez que se renderiza el componente. Tenemos que ponerle un segundo parametro para que no entre en bucle ya que se actualiza el estado y se renderiza el componente, y se vuelve a actualizar el estado y a renderizar el componente....
+  useEffect(function () { setGifts(OTHERGIFTS)}, [])  //con el  [], solo se ejecuta una vez y es lo que antiguamemte era el COMPONENTDIDMOUNT 
   return (
     <div className="App">
       <section className="App-content">
         { gifs.map(singleGif => <img src={singleGif} />)}
-        <button onClick= {()=>setGifts(OTHERGIFTS)}>CAMBIAR GIFS</button>
+         <button onClick= {()=>setGifts(OTHERGIFTS)}>CAMBIAR GIFS</button>
       </section>
     </div>
   );
