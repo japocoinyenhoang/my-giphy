@@ -17,7 +17,16 @@ useEffect(function () {
   return (
     <div className="App">
       <section className="App-content">
-        { gifs.map(singleGif => <img src={singleGif} />)}
+        { gifs.map(singleGif => {
+          return (
+            <div>
+              <h4>{singleGif.title}</h4>
+              <small>{singleGif.id}</small>
+              <img alt ={singleGif.title}  src={singleGif.url} />
+            </div>
+            )
+          })
+      }
       </section>
     </div>
   );
